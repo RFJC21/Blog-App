@@ -19,5 +19,6 @@ export const Title = styled.div`
   margin-top: 2rem;
   font-family: "Lucida Console";
   text-transform: capitalize;
-  font-size: 100px;
+  font-size: 50px;
+  color: solid grey;
 `;

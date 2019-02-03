@@ -28,9 +28,7 @@ class PostsIndex extends Component {
   render() {
     return (
       <React.Fragment>
-        <Title>
-          <h3>Posts</h3>
-        </Title>
+        <Title>Posts</Title>
         <UnListContainer>
           <ul className="list-group-flush">{this.renderPosts()}</ul>
         </UnListContainer>
