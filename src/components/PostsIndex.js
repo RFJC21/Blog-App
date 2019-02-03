@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 
 import fetchPosts from "../store/actions/index";
+import { UnListContainer, ListContainer, Title } from "../styles/List";
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -11,15 +12,28 @@ class PostsIndex extends Component {
 
   renderPosts() {
     return _.map(this.props.posts, post => {
-      return <li key={post.id}>{post.title}</li>;
+      return (
+        <ListContainer>
+          <li
+            className="list-group-item list-group-item-action list-group-item-light"
+            key={post.id}
+          >
+            {post.title}
+          </li>
+        </ListContainer>
+      );
     });
   }
 
   render() {
     return (
       <React.Fragment>
-        <h3>Posts</h3>
-        <ul>{this.renderPosts()}</ul>
+        <Title>
+          <h3>Posts</h3>
+        </Title>
+        <UnListContainer>
+          <ul className="list-group-flush">{this.renderPosts()}</ul>
+        </UnListContainer>
       </React.Fragment>
     );
   }
