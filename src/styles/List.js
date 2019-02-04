@@ -22,3 +22,11 @@ export const Title = styled.div`
   font-size: 50px;
   color: solid grey;
 `;
+
+export const Input = styled.div`
+  color: solid black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  font-family: "Lucida Console";
+`;

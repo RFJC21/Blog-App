@@ -13,3 +13,13 @@ export default function fetchPosts() {
     payload: request
   };
 }
+
+//action creator to handle the handle submit
+
+export function createPost(values) {
+  const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values);
+  return {
+    type: actionTypes.CREATE_POST,
+    payload: request
+  };
+}

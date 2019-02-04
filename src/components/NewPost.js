@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { createPost } from "../store/actions/index";
+import { Input } from "../styles/List";
 
 class NewPost extends Component {
   renderField(field) {
     return (
       <div className="form-group">
-        <label>{field.label}</label>
-        <input className="form-control" type="text" {...field.input} />
-        {field.meta.error}
+        <Input>
+          <label>{field.label}</label>
+        </Input>
+        <input className="form-control  " type="text" {...field.input} />
+        <div className="text-danger">
+          {field.meta.touched ? field.meta.error : ""}
+        </div>
       </div>
     );
   }
 
   onSubmit(values) {
-    console.log(values);
+    this.props.createPost(values);
   }
 
   render() {
@@ -41,11 +50,14 @@ class NewPost extends Component {
             component={this.renderField}
           />
         </div>
-        1
+
         <div className="text-center">
           <button type="submit" className="btn btn-secondary m-auto">
             Submit
           </button>
+          <Link to="/">
+            <button className="btn btn-danger ml-4">Cancel</button>
+          </Link>
         </div>
       </form>
     );
@@ -79,4 +91,9 @@ function validate(values) {
 export default reduxForm({
   validate,
   form: "PostNewForm"
-})(NewPost);
+})(
+  connect(
+    null,
+    { createPost }
+  )(NewPost)
+);
