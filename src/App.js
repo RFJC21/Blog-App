@@ -6,6 +6,7 @@ import "./App.css";
 import PostsIndex from "./components/PostsIndex";
 import Navbar from "./components/Navbar";
 import NewPost from "./components/NewPost";
+import PostShow from "./components/PostShow";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={PostsIndex} />
+          <Route path="/post/:id" component={PostShow} />
           <Route path="/newpost" component={NewPost} />
         </Switch>
       </React.Fragment>
